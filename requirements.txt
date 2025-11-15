@@ -1,0 +1,12 @@
+numpy
+scipy
+soundfile
+librosa
+torchaudio
+fastapi
+uvicorn[standard]
+aiofiles
+python-dotenv
+websockets
+sounddevice
+transformers

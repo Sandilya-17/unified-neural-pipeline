@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "chart.js": "^4.5.1",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^12.23.24",
+    "jszip": "^3.10.1",
+    "mic-recorder-to-mp3": "^2.2.2",
+    "react-chartjs-2": "^5.3.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.6",
+    "wavesurfer.js": "^7.11.1"
+  }
+}

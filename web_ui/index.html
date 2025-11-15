@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pipeline Demo</title>
+  <style>
+    body { font-family: Arial; padding: 12px; }
+    #timeline { margin-top: 12px; border: 1px solid #ddd; padding: 8px; }
+    .segment { display:inline-block; margin:4px; padding: 6px; border-radius:6px; background:#f0f0f0; }
+    .target { background: #c8f7c5; }
+  </style>
+</head>
+<body>
+  <h2>Unified Neural Pipeline Demo</h2>
+  <p>Upload mixture and target WAV files to /process</p>
+  <input id="mixture" type="file" /><br/><br/>
+  <input id="target" type="file" /><br/><br/>
+  <button id="send">Upload & Process</button>
+  <pre id="out"></pre>
+
+  <div id="timeline"></div>
+
+<script>
+document.getElementById('send').onclick = async () => {
+  const mix = document.getElementById('mixture').files[0];
+  const tgt = document.getElementById('target').files[0];
+  if(!mix || !tgt){ alert('choose files'); return; }
+  const fd = new FormData();
+  fd.append('mixture', mix);
+  fd.append('target', tgt);
+  document.getElementById('out').textContent = 'Uploading...';
+  const res = await fetch('/api/process', { method: 'POST', body: fd });
+  const json = await res.json();
+  document.getElementById('out').textContent = JSON.stringify(json, null, 2);
+  // draw timeline
+  const timeline = document.getElementById('timeline');
+  timeline.innerHTML = '';
+  json.forEach(seg => {
+    const el = document.createElement('div');
+    el.className = 'segment ' + (seg.speaker === 'Target' ? 'target' : '');
+    el.textContent = `${seg.speaker} [${seg.start.toFixed(2)}-${seg.end.toFixed(2)}]: ${seg.text}`;
+    timeline.appendChild(el);
+  });
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+#################################
+# PYTHON
+#################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite
+*.db-journal
+
+# Virtual Environment
+.venv/
+env/
+venv/
+
+#################################
+# AUDIO DATA / MODEL WEIGHTS
+#################################
+data/uploads/
+data/outputs/
+data/tmp/
+*.wav
+*.mp3
+*.flac
+*.safetensors
+*.pt
+*.bin
+
+# HuggingFace Cache
+huggingface/
+hf_cache/
+.cache/
+~/.cache/huggingface/
+
+#################################
+# DEMUCS / WHISPER
+#################################
+models/
+demucs/
+checkpoints/
+whisper/
+
+#################################
+# NODE / REACT FRONTEND
+#################################
+node_modules/
+dist/
+build/
+*.log
+
+# Vite local files
+*.local
+
+#################################
+# OS FILES
+#################################
+.DS_Store
+Thumbs.db
+
+#################################
+# ENV / SECRETS
+#################################
+.env
+.env.local
+.env.production
+.env.development
+
+#################################
+# EDITOR FILES
+#################################
+.vscode/
+.idea/
+*.code-workspace
+
+#################################
+# UVICORN / LOGS
+#################################
+*.log
+logs/
